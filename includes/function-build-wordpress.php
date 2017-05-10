@@ -125,6 +125,13 @@ function curPageURL()
     return $pageURL;
 }
 
+// Get Youtube ID
+function getYoutubeVideoId($url)
+{
+    parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+    return $my_array_of_vars['v'];
+}
+
 // Remove menu items
 // add_action('admin_menu', 'remove_menus');
 // add_action('admin_menu', 'remove_sub_menu_items');
@@ -151,3 +158,8 @@ function curPageURL()
 //     remove_submenu_page('tools.php', 'tools.php');
 //     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
 // }
+
+// function remove_acf_menu() {
+//     remove_menu_page('edit.php?post_type=acf');
+// }
+// add_action( 'admin_menu', 'remove_acf_menu', 999);

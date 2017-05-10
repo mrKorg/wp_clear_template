@@ -28,9 +28,7 @@ add_image_size('thumb', 500, 500, true);
 function my_theme_enqueue_style()
 {
     wp_enqueue_style('slick', get_template_directory_uri() . '/bower_components/slick-carousel/slick/slick.css');
-    wp_enqueue_style('sweetalert2', get_template_directory_uri() . '/bower_components/sweetalert2/dist/sweetalert2.min.css');
     wp_enqueue_style('magnific', get_template_directory_uri() . '/bower_components/magnific-popup/dist/magnific-popup.css');
-    wp_enqueue_style('scrollbar', get_template_directory_uri() . '/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css');
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css');
 }
 
@@ -40,19 +38,15 @@ add_action('wp_enqueue_scripts', 'my_theme_enqueue_style');
 function my_theme_add_scripts()
 {
 
-    if (is_front_page() || is_page(16)) {
-        //wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC7nl04gTQl-ZBg0gjus9KGEEOKiczTW7o&callback=initMap', '', '', true);
+    if (is_front_page()) {
         wp_enqueue_script('map', get_template_directory_uri() . '/assets/js/google-map.js?key=AIzaSyC7nl04gTQl-ZBg0gjus9KGEEOKiczTW7o&callback=initMap', '', '', true);
     }
     wp_enqueue_script('slick', get_template_directory_uri() . '/bower_components/slick-carousel/slick/slick.min.js', '', '', true);
-    wp_enqueue_script('sweetalert2', get_template_directory_uri() . '/bower_components/sweetalert2/dist/sweetalert2.min.js', '', '', true);
     wp_enqueue_script('magnific', get_template_directory_uri() . '/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js', '', '', true);
-    wp_enqueue_script('scrollbar', get_template_directory_uri() . '/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js', '', '', true);
     wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/js/scripts.js', '', '', true);
 
     wp_localize_script('scripts', 'scripts_object',
         array(
-            'shops' => get_field('shops', 16),
             'url' => get_template_directory_uri(),
             'home' => get_home_url()
         )

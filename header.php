@@ -65,7 +65,7 @@
                     div.style.display = 'none';
                     script.parentNode.insertBefore(div, script)
                 };
-                xhr.open('get', '<?php get_template_directory_uri(); ?>/assets/img/sprites.svg', true);
+                xhr.open('get', '<?php echo get_template_directory_uri(); ?>/assets/img/sprites.svg', true);
                 xhr.send()
             })(document)
         </script>
