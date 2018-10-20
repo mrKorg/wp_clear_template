@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?>>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta http-equiv="Cache-Control" content="public">
-		<meta http-equiv="Cache-Control" content="no-store">
-		<meta http-equiv="Cache-Control" content="max-age=34700">
-
 		<meta name="format-detection" content="telephone=no">
+
+        <link href="<?= get_template_directory_uri() ?>/favicon.ico" rel="icon" type="image/x-icon">
 
 		<title>
 		<?php echo wp_title(''); ?>
@@ -43,7 +40,7 @@
         </style>
 		
 	</head>
-	<body ontouchstart="">
+	<body ontouchstart="" <?php body_class(); ?>>
 
         <div id="page-preloader">
             <span class="spinner">
